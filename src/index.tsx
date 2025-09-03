@@ -733,7 +733,7 @@ app.get('/', (c) => {
                 
                 <div class="border-t border-gray-700 mt-8 pt-8 text-center">
                     <p class="text-gray-400">
-                        © 2024 INAMOB Negócios Digitais. Todos os direitos reservados. 
+                        © 2025 INAMOB Negócios Digitais. Todos os direitos reservados. 
                         <br>Desenvolvido com ❤️ para dominar o digital.
                     </p>
                 </div>
