@@ -1,0 +1,54 @@
+{
+  "name": "INAMOB - Agência de Marketing Digital",
+  "short_name": "INAMOB",
+  "description": "Agência de marketing digital especializada em SEO, Google Ads, redes sociais e estratégias digitais para empresas no Brasil.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#9333ea",
+  "theme_color": "#9333ea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["marketing", "business", "productivity"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Falar no WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Entre em contato conosco pelo WhatsApp",
+      "url": "https://wa.me/552140421350",
+      "icons": [
+        {
+          "src": "/static/whatsapp-icon.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Nossos Serviços",
+      "short_name": "Serviços",
+      "description": "Conheça nossos serviços de marketing digital",
+      "url": "/#servicos",
+      "icons": [
+        {
+          "src": "/static/services-icon.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

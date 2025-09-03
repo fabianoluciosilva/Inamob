@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_worker.js
+
+# Sitemaps
+Sitemap: https://inamob.com.br/sitemap.xml
+
+# Crawl-delay para bots específicos
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Permitir todos os recursos importantes para SEO
+Allow: /static/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+
+# Comentários para SEO
+# Site da INAMOB - Agência de Marketing Digital
+# Especializada em SEO, Google Ads, Redes Sociais
+# Localização: Brasil - Rio de Janeiro
