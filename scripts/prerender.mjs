@@ -1,27 +1,37 @@
 // Gera arquivos estáticos a partir do worker buildado (dist/_worker.js).
-// A Vercel serve o diretório dist/ como site estático, então precisamos de um
-// index.html (a home) e do sitemap.xml gerados em build time.
-import { writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+// A Vercel serve dist/ como site estático (cleanUrls: true), então pré-renderizamos
+// a home, o blog e cada artigo em HTML.
+import { writeFile, mkdir } from 'node:fs/promises'
+import { join, dirname } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 const dist = join(process.cwd(), 'dist')
 const worker = (await import(pathToFileURL(join(dist, '_worker.js')).href)).default
 
-async function render(path) {
+async function fetchPath(path) {
   const res = await worker.fetch(new Request(`https://inamob.com.br${path}`), {}, {})
   if (!res.ok) throw new Error(`Falha ao renderizar ${path}: HTTP ${res.status}`)
   return await res.text()
 }
 
-const pages = [
-  { path: '/', file: 'index.html' },
-  { path: '/sitemap.xml', file: 'sitemap.xml' },
-  { path: '/robots.txt', file: 'robots.txt' },
-]
+async function emit(path, file) {
+  const text = await fetchPath(path)
+  const dest = join(dist, file)
+  await mkdir(dirname(dest), { recursive: true })
+  await writeFile(dest, text, 'utf8')
+  console.log(`prerender: ${path} -> dist/${file} (${text.length} bytes)`)
+}
 
-for (const { path, file } of pages) {
-  const html = await render(path)
-  await writeFile(join(dist, file), html, 'utf8')
-  console.log(`prerender: ${path} -> dist/${file} (${html.length} bytes)`)
+// Páginas fixas + sitemap/robots
+await emit('/', 'index.html')
+await emit('/blog', 'blog/index.html')
+await emit('/sitemap.xml', 'sitemap.xml')
+await emit('/robots.txt', 'robots.txt')
+
+// Descobre os artigos a partir do sitemap e renderiza cada um
+const sitemap = await fetchPath('/sitemap.xml')
+const slugs = [...sitemap.matchAll(/\/blog\/([a-z0-9-]+)<\/loc>/g)].map((m) => m[1])
+console.log(`prerender: ${slugs.length} artigos encontrados`)
+for (const slug of slugs) {
+  await emit(`/blog/${slug}`, `blog/${slug}.html`)
 }
