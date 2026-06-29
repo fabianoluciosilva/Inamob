@@ -50,48 +50,27 @@ function initContactForm() {
             if (!validateForm(data)) {
                 throw new Error('Por favor, preencha todos os campos obrigatórios.');
             }
-            
-            // Send to API
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-            
-            const result = await response.json();
-            
-            if (result.success) {
-                showAlert('success', 'Mensagem enviada com sucesso! Entraremos em contato em breve.');
-                form.reset();
-                
-                // Track conversion
-                trackConversion('contact_form', data.service);
-                
-                // Auto-redirect to WhatsApp after 3 seconds
-                setTimeout(() => {
-                    const whatsappMessage = encodeURIComponent(
-                        `Olá! Acabei de enviar uma mensagem pelo site sobre ${data.service}. Meu nome é ${data.name}.`
-                    );
-                    window.open(`https://wa.me/552140421350?text=${whatsappMessage}`, '_blank');
-                }, 3000);
-                
-            } else {
-                throw new Error(result.message || 'Erro ao enviar mensagem');
-            }
-            
+
+            // Monta a mensagem com os dados do formulário e abre o WhatsApp
+            const whatsappMessage = encodeURIComponent(
+                `Olá! Vim pelo site da INAMOB.\n\n` +
+                `*Nome:* ${data.name}\n` +
+                `*E-mail:* ${data.email}\n` +
+                `*Telefone:* ${data.phone}\n` +
+                `*Serviço de interesse:* ${data.service}\n` +
+                `*Mensagem:* ${data.message}`
+            );
+            window.open(`https://wa.me/552140421350?text=${whatsappMessage}`, '_blank');
+
+            showAlert('success', 'Tudo certo! Abrimos o WhatsApp para você finalizar o envio. É só dar enviar na conversa.');
+            form.reset();
+
+            // Track conversion
+            trackConversion('contact_form', data.service);
+
         } catch (error) {
             console.error('Form submission error:', error);
-            showAlert('error', error.message || 'Erro ao enviar mensagem. Tente novamente ou use o WhatsApp.');
-            
-            // Fallback to WhatsApp
-            setTimeout(() => {
-                const whatsappMessage = encodeURIComponent(
-                    `Olá! Tentei enviar uma mensagem pelo site mas houve um problema. Meu nome é ${data.name} e gostaria de saber sobre ${data.service}.`
-                );
-                window.open(`https://wa.me/552140421350?text=${whatsappMessage}`, '_blank');
-            }, 2000);
+            showAlert('error', error.message || 'Verifique os campos e tente novamente, ou fale direto no WhatsApp.');
         } finally {
             // Restore button
             submitButton.innerHTML = originalText;
@@ -410,18 +389,5 @@ function initSEOTracking() {
 
 // Initialize SEO tracking
 initSEOTracking();
-
-// Service Worker registration for PWA capabilities (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful');
-            })
-            .catch(function(err) {
-                console.log('ServiceWorker registration failed');
-            });
-    });
-}
 
 console.log('INAMOB JavaScript initialized - Ready for digital marketing excellence!');

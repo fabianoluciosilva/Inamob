@@ -17,7 +17,7 @@ const seoConfig = {
   keywords: 'marketing digital, SEO, google ads, redes sociais, agência digital, marketing online, publicidade digital, otimização de sites, gestão digital, consultoria digital, Brasil, Rio de Janeiro',
   author: 'INAMOB Negócios Digitais',
   url: 'https://inamob.com.br',
-  image: 'https://inamob.com.br/static/inamob-og-image.jpg',
+  image: 'https://inamob.com.br/static/inamob-logo.jpg',
   locale: 'pt_BR',
   type: 'website'
 }
@@ -55,8 +55,8 @@ const generateSchemaOrg = () => {
     "name": "INAMOB Negócios Digitais",
     "alternateName": "INAMOB",
     "url": "https://inamob.com.br",
-    "logo": "https://inamob.com.br/static/inamob-logo.png",
-    "image": "https://inamob.com.br/static/inamob-og-image.jpg",
+    "logo": "https://inamob.com.br/static/inamob-logo.jpg",
+    "image": "https://inamob.com.br/static/inamob-logo.jpg",
     "description": "Agência de marketing digital especializada em SEO, Google Ads, redes sociais e estratégias digitais para empresas no Brasil.",
     "address": {
       "@type": "PostalAddress",
@@ -138,14 +138,12 @@ app.get('/', (c) => {
         <link rel="canonical" href="${seoConfig.url}">
         
         <!-- Favicon and Icons -->
-        <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
-        
+        <link rel="icon" type="image/jpeg" href="/static/inamob-logo.jpg">
+        <link rel="apple-touch-icon" href="/static/inamob-logo.jpg">
+
         <!-- Preload Critical Resources -->
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
-        <link rel="preload" href="/static/inamob-logo.png" as="image">
+        <link rel="preload" href="/static/inamob-logo.jpg" as="image">
         
         <!-- CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
@@ -243,10 +241,11 @@ app.get('/', (c) => {
             <nav class="container mx-auto px-4 py-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <img src="https://page.gensparksite.com/v1/base64_upload/18cf05d9819fdbd48a8f4db4a7d0d394" alt="INAMOB Logo" class="h-12 w-auto">
+                        <img src="/static/inamob-logo.jpg" alt="INAMOB Logo" class="h-12 w-auto">
                     </div>
                     <div class="hidden md:flex space-x-8">
                         <a href="#servicos" class="hover:text-purple-200 transition-colors">Serviços</a>
+                        <a href="#portfolio" class="hover:text-purple-200 transition-colors">Portfólio</a>
                         <a href="#sobre" class="hover:text-purple-200 transition-colors">Sobre</a>
                         <a href="#contato" class="hover:text-purple-200 transition-colors">Contato</a>
                         <a href="https://wa.me/552140421350" target="_blank" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg transition-colors">
@@ -436,6 +435,94 @@ app.get('/', (c) => {
                             Solicitar Orçamento
                         </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                        Sites que <span class="text-purple-600">já fizemos</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Projetos reais entregues pela INAMOB. Conheça alguns dos negócios que já confiaram no nosso trabalho.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Cervejaria Ravache -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="gradient-bg h-32 flex items-center justify-center">
+                            <i class="fas fa-beer-mug-empty text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Cervejaria</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Cervejaria Ravache</h3>
+                            <p class="text-gray-600 text-sm mb-4">Site institucional para cervejaria, com apresentação da marca e dos produtos.</p>
+                            <a href="https://cervejariaravache.com.br" target="_blank" rel="noopener"
+                               class="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
+                                Visitar site <i class="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Guaraná Convenção -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="gradient-bg h-32 flex items-center justify-center">
+                            <i class="fas fa-champagne-glasses text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Eventos</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Guaraná Convenção</h3>
+                            <p class="text-gray-600 text-sm mb-4">Presença digital para o Guaraná Convenção, com foco em divulgação e contato.</p>
+                            <a href="https://guaranaconvencao.com.br" target="_blank" rel="noopener"
+                               class="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
+                                Visitar site <i class="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Simples Solução TI -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="gradient-bg h-32 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Tecnologia / TI</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Simples Solução TI</h3>
+                            <p class="text-gray-600 text-sm mb-4">Empresa de suporte e infraestrutura de TI com mais de 18 anos no mercado.</p>
+                            <a href="https://simplessolucao.com.br" target="_blank" rel="noopener"
+                               class="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
+                                Visitar site <i class="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dr. Fábio Lúcio -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="gradient-bg h-32 flex items-center justify-center">
+                            <i class="fas fa-scale-balanced text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Advocacia</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Dr. Fábio Lúcio</h3>
+                            <p class="text-gray-600 text-sm mb-4">Escritório de advocacia com atendimento em direito civil, família, trabalhista e empresarial.</p>
+                            <a href="https://fabiolucio.adv.br" target="_blank" rel="noopener"
+                               class="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
+                                Visitar site <i class="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="https://wa.me/552140421350?text=Quero%20um%20site%20como%20esses%20para%20o%20meu%20neg%C3%B3cio!"
+                       target="_blank"
+                       class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fab fa-whatsapp mr-2"></i>Quero um site assim
+                    </a>
                 </div>
             </div>
         </section>
@@ -668,7 +755,7 @@ app.get('/', (c) => {
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-4 gap-8">
                     <div>
-                        <img src="https://page.gensparksite.com/v1/base64_upload/18cf05d9819fdbd48a8f4db4a7d0d394" alt="INAMOB Logo" class="h-12 w-auto mb-4">
+                        <img src="/static/inamob-logo.jpg" alt="INAMOB Logo" class="h-12 w-auto mb-4">
                         <p class="text-gray-400 mb-4">
                             Transformando negócios através do marketing digital. 
                             Especialistas em SEO, Google Ads e estratégias digitais.
@@ -773,6 +860,12 @@ app.get('/sitemap.xml', (c) => {
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inamob.com.br/#portfolio</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://inamob.com.br/#sobre</loc>
