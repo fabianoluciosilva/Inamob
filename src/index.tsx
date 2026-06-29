@@ -358,8 +358,6 @@ app.get('/sitemap.xml', (c) => {
   const today = new Date().toISOString().split('T')[0]
   const urls: { loc: string; priority: string; freq: string; lastmod?: string }[] = [
     { loc: `${SITE.url}/`, priority: '1.0', freq: 'weekly' },
-    { loc: `${SITE.url}/#servicos`, priority: '0.8', freq: 'monthly' },
-    { loc: `${SITE.url}/#portfolio`, priority: '0.7', freq: 'monthly' },
     { loc: `${SITE.url}/blog`, priority: '0.9', freq: 'weekly' },
     ...CATEGORIES.map((cat) => ({
       loc: `${SITE.url}/blog/categoria/${cat.slug}`,

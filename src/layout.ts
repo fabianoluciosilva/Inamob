@@ -4,13 +4,13 @@
 import { CATEGORIES } from './categories'
 
 export const SITE = {
-  url: 'https://inamob.com.br',
+  url: 'https://www.inamob.com.br',
   name: 'INAMOB',
   legalName: 'INAMOB Negócios Digitais',
   phone: '552140421350',
   phoneDisplay: '(21) 4042-1350',
   email: 'contato@inamob.com.br',
-  defaultImage: 'https://inamob.com.br/static/inamob-og.png',
+  defaultImage: 'https://www.inamob.com.br/static/inamob-og.png',
   // Definido em build time (Vercel env). Ex.: G-XXXXXXX (GA4) ou GTM-XXXXXXX (GTM).
   ga4Id: (typeof process !== 'undefined' && process.env && process.env.GA4_ID) || '',
   gtmId: (typeof process !== 'undefined' && process.env && process.env.GTM_ID) || '',
