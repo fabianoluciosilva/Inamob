@@ -28,8 +28,16 @@ await emit('/blog', 'blog/index.html')
 await emit('/sitemap.xml', 'sitemap.xml')
 await emit('/robots.txt', 'robots.txt')
 
-// Descobre os artigos a partir do sitemap e renderiza cada um
+// Descobre categorias e artigos a partir do sitemap e renderiza cada página
 const sitemap = await fetchPath('/sitemap.xml')
+
+const categorySlugs = [...sitemap.matchAll(/\/blog\/categoria\/([a-z0-9-]+)<\/loc>/g)].map((m) => m[1])
+console.log(`prerender: ${categorySlugs.length} categorias encontradas`)
+for (const slug of categorySlugs) {
+  await emit(`/blog/categoria/${slug}`, `blog/categoria/${slug}.html`)
+}
+
+// Artigos: /blog/<slug></loc> com um único segmento (não casa com /blog/categoria/...)
 const slugs = [...sitemap.matchAll(/\/blog\/([a-z0-9-]+)<\/loc>/g)].map((m) => m[1])
 console.log(`prerender: ${slugs.length} artigos encontrados`)
 for (const slug of slugs) {

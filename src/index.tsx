@@ -9,6 +9,10 @@ import {
   renderBlogIndex,
   articleMeta,
   renderArticle,
+  CATEGORIES,
+  categoryBySlug,
+  categoryMeta,
+  renderCategoryPage,
 } from './blog'
 
 const app = new Hono()
@@ -295,6 +299,12 @@ app.get('/', (c) => c.html(renderPage(homeMeta, homeBody)))
 // ---------------- Blog ----------------
 app.get('/blog', (c) => c.html(renderPage(blogIndexMeta(), renderBlogIndex())))
 
+app.get('/blog/categoria/:slug', (c) => {
+  const category = categoryBySlug(c.req.param('slug'))
+  if (!category) return c.notFound()
+  return c.html(renderPage(categoryMeta(category), renderCategoryPage(category)))
+})
+
 app.get('/blog/:slug', (c) => {
   const article = bySlug(c.req.param('slug'))
   if (!article) return c.notFound()
@@ -309,6 +319,11 @@ app.get('/sitemap.xml', (c) => {
     { loc: `${SITE.url}/#servicos`, priority: '0.8', freq: 'monthly' },
     { loc: `${SITE.url}/#portfolio`, priority: '0.7', freq: 'monthly' },
     { loc: `${SITE.url}/blog`, priority: '0.9', freq: 'weekly' },
+    ...CATEGORIES.map((cat) => ({
+      loc: `${SITE.url}/blog/categoria/${cat.slug}`,
+      priority: '0.8',
+      freq: 'weekly',
+    })),
     ...articles.map((a) => ({
       loc: `${SITE.url}/blog/${a.slug}`,
       priority: '0.7',
