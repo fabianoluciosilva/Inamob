@@ -1,6 +1,7 @@
 // Camada de layout/SEO reutilizável (home + blog).
 // Centraliza <head>, header, footer e scripts para evitar duplicação e
 // garantir SEO consistente em todas as páginas.
+import { CATEGORIES } from './categories'
 
 export const SITE = {
   url: 'https://inamob.com.br',
@@ -164,7 +165,15 @@ export function renderHeader(): string {
                     <div class="hidden md:flex space-x-8 items-center">
                         <a href="/#servicos" class="hover:text-purple-200 transition-colors">Serviços</a>
                         <a href="/#portfolio" class="hover:text-purple-200 transition-colors">Portfólio</a>
-                        <a href="/blog" class="hover:text-purple-200 transition-colors">Blog</a>
+                        <div class="relative group">
+                            <a href="/blog" class="hover:text-purple-200 transition-colors inline-flex items-center">Blog <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i></a>
+                            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block z-50">
+                                <div class="bg-white rounded-lg shadow-xl py-2 w-64">
+                                    ${CATEGORIES.map((c) => `<a href="/blog/categoria/${c.slug}" class="flex items-center px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-700 text-sm"><i class="fas ${c.icon} w-5 mr-2 text-purple-600" aria-hidden="true"></i>${c.name}</a>`).join('')}
+                                    <a href="/blog" class="block px-4 py-2 mt-1 border-t border-gray-100 text-purple-600 font-semibold text-sm hover:bg-purple-50">Ver todas as categorias →</a>
+                                </div>
+                            </div>
+                        </div>
                         <a href="/#sobre" class="hover:text-purple-200 transition-colors">Sobre</a>
                         <a href="/#contato" class="hover:text-purple-200 transition-colors">Contato</a>
                         <a href="https://wa.me/${SITE.phone}" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg transition-colors">
@@ -229,6 +238,12 @@ export function renderFooter(): string {
                             <li><i class="fab fa-whatsapp mr-2" aria-hidden="true"></i><a href="https://wa.me/${SITE.phone}" target="_blank" rel="noopener noreferrer" class="hover:text-white">WhatsApp</a></li>
                             <li><i class="fas fa-envelope mr-2" aria-hidden="true"></i><a href="mailto:${SITE.email}" class="hover:text-white">${SITE.email}</a></li>
                         </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8">
+                    <h2 class="text-lg font-bold mb-4">Blog por categoria</h2>
+                    <div class="flex flex-wrap gap-2">
+                        ${CATEGORIES.map((c) => `<a href="/blog/categoria/${c.slug}" class="text-gray-300 hover:text-white text-sm bg-gray-700/50 hover:bg-gray-700 px-3 py-1.5 rounded-full transition-colors"><i class="fas ${c.icon} mr-2" aria-hidden="true"></i>${c.name}</a>`).join('')}
                     </div>
                 </div>
                 <div class="border-t border-gray-700 mt-8 pt-8 text-center">
