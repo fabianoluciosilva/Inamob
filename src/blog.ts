@@ -248,16 +248,18 @@ export function renderArticle(a: Article): string {
       </header>
 
       <div class="py-12 bg-white">
-        <div class="container mx-auto px-4 max-w-3xl prose-inamob">
-          <p class="text-xl text-gray-700 mb-8 leading-relaxed">${a.description}</p>
-          ${a.body}
+        <div class="container mx-auto px-4 max-w-3xl">
+          <div class="prose-inamob">
+            <p class="text-xl text-gray-700 mb-8 leading-relaxed">${a.description}</p>
+            ${a.body}
+          </div>
 
-          <div class="gradient-bg text-white rounded-xl p-8 mt-12 text-center">
-            <h2 class="text-2xl font-bold mb-3 text-white" style="margin-top:0">Precisa de ajuda com ${a.category.toLowerCase()}?</h2>
-            <p class="text-purple-100 mb-6">A INAMOB cuida da estratégia de marketing digital do seu negócio do começo ao fim.</p>
+          <div class="gradient-bg rounded-xl p-8 mt-12 text-center">
+            <h2 class="text-2xl font-bold mb-3 !text-white">Precisa de ajuda com ${a.category.toLowerCase()}?</h2>
+            <p class="!text-purple-100 mb-6">A INAMOB cuida da estratégia de marketing digital do seu negócio do começo ao fim.</p>
             <a href="https://wa.me/${SITE.phone}?text=Vim%20do%20blog%20da%20INAMOB%20e%20quero%20uma%20consultoria!"
                target="_blank" rel="noopener noreferrer"
-               class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-all">
+               class="inline-block bg-green-500 hover:bg-green-600 !text-white font-bold py-3 px-8 rounded-lg transition-all no-underline">
               <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>Falar com um especialista
             </a>
           </div>
