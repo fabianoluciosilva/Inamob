@@ -17,7 +17,7 @@ const seoConfig = {
   keywords: 'marketing digital, SEO, google ads, redes sociais, agência digital, marketing online, publicidade digital, otimização de sites, gestão digital, consultoria digital, Brasil, Rio de Janeiro',
   author: 'INAMOB Negócios Digitais',
   url: 'https://inamob.com.br',
-  image: 'https://inamob.com.br/static/inamob-logo.jpg',
+  image: 'https://inamob.com.br/static/inamob-og.png',
   locale: 'pt_BR',
   type: 'website'
 }
@@ -55,8 +55,8 @@ const generateSchemaOrg = () => {
     "name": "INAMOB Negócios Digitais",
     "alternateName": "INAMOB",
     "url": "https://inamob.com.br",
-    "logo": "https://inamob.com.br/static/inamob-logo.jpg",
-    "image": "https://inamob.com.br/static/inamob-logo.jpg",
+    "logo": "https://inamob.com.br/static/inamob-logo.png",
+    "image": "https://inamob.com.br/static/inamob-og.png",
     "description": "Agência de marketing digital especializada em SEO, Google Ads, redes sociais e estratégias digitais para empresas no Brasil.",
     "address": {
       "@type": "PostalAddress",
@@ -138,12 +138,12 @@ app.get('/', (c) => {
         <link rel="canonical" href="${seoConfig.url}">
         
         <!-- Favicon and Icons -->
-        <link rel="icon" type="image/jpeg" href="/static/inamob-logo.jpg">
-        <link rel="apple-touch-icon" href="/static/inamob-logo.jpg">
+        <link rel="icon" type="image/png" href="/static/inamob-icon.png">
+        <link rel="apple-touch-icon" href="/static/inamob-icon.png">
 
         <!-- Preload Critical Resources -->
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
-        <link rel="preload" href="/static/inamob-logo.jpg" as="image">
+        <link rel="preload" href="/static/inamob-logo.png" as="image">
         
         <!-- CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
@@ -241,7 +241,7 @@ app.get('/', (c) => {
             <nav class="container mx-auto px-4 py-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <img src="/static/inamob-logo.jpg" alt="INAMOB Logo" class="h-12 w-auto">
+                        <img src="/static/inamob-logo.png" alt="INAMOB Logo" class="h-12 w-auto">
                     </div>
                     <div class="hidden md:flex space-x-8">
                         <a href="#servicos" class="hover:text-purple-200 transition-colors">Serviços</a>
@@ -755,7 +755,7 @@ app.get('/', (c) => {
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-4 gap-8">
                     <div>
-                        <img src="/static/inamob-logo.jpg" alt="INAMOB Logo" class="h-12 w-auto mb-4">
+                        <img src="/static/inamob-logo.png" alt="INAMOB Logo" class="h-12 w-auto mb-4">
                         <p class="text-gray-400 mb-4">
                             Transformando negócios através do marketing digital. 
                             Especialistas em SEO, Google Ads e estratégias digitais.
