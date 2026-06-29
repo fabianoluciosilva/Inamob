@@ -183,9 +183,29 @@ const homeBody = `
                         </div>
                     </div>`).join('')}
                 </div>
+
+                <div class="text-center mt-20 mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Gestão de Campanhas no <span class="text-purple-600">Google Ads</span></h3>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Administração de tráfego pago para empresas que querem gerar leads e vendas com o Google Ads.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    ${[
+                      { tag: 'Google Ads', name: 'Simples Solução TI', desc: 'Administração de campanhas no Google Ads para geração de leads no setor de tecnologia e suporte de TI.' },
+                      { tag: 'Google Ads', name: 'Fuchal Offshore', desc: 'Administração de campanhas no Google Ads voltadas ao segmento offshore.' },
+                    ].map((p) => `
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="gradient-bg h-32 flex items-center justify-center"><i class="fab fa-google text-white text-5xl" aria-hidden="true"></i></div>
+                        <div class="p-6">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">${p.tag}</span>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">${p.name}</h4>
+                            <p class="text-gray-600 text-sm">${p.desc}</p>
+                        </div>
+                    </div>`).join('')}
+                </div>
+
                 <div class="text-center mt-12">
                     <a href="${wa('Quero%20um%20site%20como%20esses%20para%20o%20meu%20neg%C3%B3cio!')}" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
-                        <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>Quero um site assim
+                        <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i>Quero resultados como esses
                     </a>
                 </div>
             </div>
