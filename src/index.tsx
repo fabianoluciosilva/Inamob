@@ -461,23 +461,23 @@ app.get('/', (c) => {
                             <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Cervejaria</span>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">Cervejaria Ravache</h3>
                             <p class="text-gray-600 text-sm mb-4">Site institucional para cervejaria, com apresentação da marca e dos produtos.</p>
-                            <a href="https://cervejariaravache.com.br" target="_blank" rel="noopener"
+                            <a href="https://www.cervejariaravacherj.com.br/" target="_blank" rel="noopener"
                                class="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
                                 Visitar site <i class="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Guaraná Convenção -->
+                    <!-- Refrigerantes Convenção -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
                         <div class="gradient-bg h-32 flex items-center justify-center">
-                            <i class="fas fa-champagne-glasses text-white text-5xl"></i>
+                            <i class="fas fa-bottle-water text-white text-5xl"></i>
                         </div>
                         <div class="p-6">
-                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Eventos</span>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Guaraná Convenção</h3>
-                            <p class="text-gray-600 text-sm mb-4">Presença digital para o Guaraná Convenção, com foco em divulgação e contato.</p>
-                            <a href="https://guaranaconvencao.com.br" target="_blank" rel="noopener"
+                            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Bebidas</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Refrigerantes Convenção</h3>
+                            <p class="text-gray-600 text-sm mb-4">Marca de refrigerantes — o sabor da família brasileira.</p>
+                            <a href="https://www.guaranaconvencaorj.com.br/" target="_blank" rel="noopener"
                                class="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
                                 Visitar site <i class="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
                             </a>
