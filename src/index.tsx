@@ -190,15 +190,37 @@ const homeBody = `
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     ${[
-                      { tag: 'Google Ads', name: 'Simples Solução TI', desc: 'Administração de campanhas no Google Ads para geração de leads no setor de tecnologia e suporte de TI.' },
-                      { tag: 'Google Ads', name: 'Fuchal Offshore', desc: 'Administração de campanhas no Google Ads voltadas ao segmento offshore.' },
+                      {
+                        tag: 'Google Ads',
+                        name: 'Simples Solução TI',
+                        desc: 'Administração de campanhas no Google Ads para geração de leads no setor de tecnologia e suporte de TI.',
+                        period: 'em 4 meses',
+                        metrics: [
+                          { value: '+150', label: 'leads gerados' },
+                          { value: '-30%', label: 'no custo por lead' },
+                        ],
+                      },
+                      {
+                        tag: 'Google Ads',
+                        name: 'Fuchal Offshore',
+                        desc: 'Administração de campanhas no Google Ads voltadas ao segmento offshore.',
+                        period: 'em 6 meses',
+                        metrics: [
+                          { value: '5x', label: 'de ROAS' },
+                          { value: '+90%', label: 'em conversões' },
+                        ],
+                      },
                     ].map((p) => `
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
                         <div class="gradient-bg h-32 flex items-center justify-center"><i class="fab fa-google text-white text-5xl" aria-hidden="true"></i></div>
                         <div class="p-6">
                             <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">${p.tag}</span>
                             <h4 class="text-xl font-bold text-gray-800 mb-2">${p.name}</h4>
-                            <p class="text-gray-600 text-sm">${p.desc}</p>
+                            <p class="text-gray-600 text-sm mb-5">${p.desc}</p>
+                            <div class="grid grid-cols-2 gap-3 border-t border-gray-100 pt-5">
+                                ${p.metrics.map((m) => `<div class="text-center"><div class="text-2xl font-extrabold text-purple-600">${m.value}</div><div class="text-xs text-gray-500 leading-tight mt-1">${m.label}</div></div>`).join('')}
+                            </div>
+                            <p class="text-center text-xs text-gray-400 mt-4"><i class="far fa-clock mr-1" aria-hidden="true"></i>${p.period}</p>
                         </div>
                     </div>`).join('')}
                 </div>
