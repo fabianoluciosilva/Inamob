@@ -198,6 +198,7 @@ export function articleMeta(a: Article): PageMeta {
     path: `/blog/${a.slug}`,
     keywords: a.keywords,
     ogType: 'article',
+    ogImage: `${SITE.url}/static/og/${a.slug}.png`,
     article: { published: a.date, modified: a.date, section: a.category },
     jsonLd: [
       {
@@ -217,7 +218,7 @@ export function articleMeta(a: Article): PageMeta {
           name: SITE.legalName,
           logo: { '@type': 'ImageObject', url: `${SITE.url}/static/inamob-icon.png` },
         },
-        image: SITE.defaultImage,
+        image: `${SITE.url}/static/og/${a.slug}.png`,
       },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumb },
     ],
